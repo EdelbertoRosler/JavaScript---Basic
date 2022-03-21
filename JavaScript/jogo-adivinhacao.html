@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    
+    function lineBreak() {
+        document.write("<br>");
+    }
+
+    function show(text) {
+        document.write(text); // o "document.write" serve para imprimir na tela
+    }
+
+    function magicNumber(x){
+        return Math.round(Math.random() * x);// arredonda um número random de 1 a 10
+    }
+    
+    maximo = parseInt(prompt("Diga um número para ser o número máximo. . ."));
+    xNumber = magicNumber(maximo);
+
+    var i = 5;//tentativas
+    while (i != 0){
+        testNumber = parseInt(prompt("Você tem + "+ i + " tentativas. Tente adivinhar qual número. . ."));
+
+        if(testNumber == xNumber) {
+            alert("PARABÉNS, VC ACERTOU!")
+            break;
+        }
+        else if(testNumber > xNumber) alert("VC ERROU! O número é menor que "+ testNumber);
+        else alert("VC ERROU! O número é maior que " + testNumber);
+        i--;
+    }
+    show("O número era: "+ xNumber);
+    lineBreak();
+    show("---------- GAME OVER ----------");
+
+</script>

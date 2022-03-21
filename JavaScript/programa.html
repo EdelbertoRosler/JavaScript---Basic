@@ -1,0 +1,11 @@
+<canvas width="800" height="600"></canvas>      <!-- Tamanho do tela que será usado -->
+
+<script>
+    tela = document.querySelector('canvas');    // Variável tela vai receber do html o 'canvas'
+    pincel = tela.getContext('2d');             // Variável pincel vai usar a 'tela'
+    
+    pincel.fillStyle = 'orange';                // Cor desejada do 'pincel'
+    pincel.fillRect(0, 0, 800, 600);            // Posição inicial e final da pintura que desejo realizar
+
+
+</script>

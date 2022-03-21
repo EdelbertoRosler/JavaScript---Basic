@@ -1,0 +1,92 @@
+<meta charset="UTF-8">
+<input/>
+<button> Enter </button><br>
+
+
+<script>
+    function sorteia(){
+        return Math.round(Math.random() * 10);
+    }
+
+    function sorteiaNumber(qnt){
+        segredos = [];
+        cont = 1;    
+        while(cont <= qnt){
+            number = sorteia();
+            if(number != 0){//para não vir o zero
+                achou = false;
+                for(i = 0; i < segredos.length; i++){
+                    if(segredos[i] == number){//para não repetir o mesmo número
+                        achou = true;
+                        break;
+                    }
+                }
+                if(achou == false){
+                    segredos.push(number);
+                    cont++;
+                }
+                
+            }          
+        }
+        return segredos;          
+    }
+
+
+    segredos = sorteiaNumber(5);
+    console.log(segredos); //para verificar no console
+
+
+
+
+    var entrada = document.querySelector("input");//entrada recebe o input do html
+    entrada.focus();//para dar um foco e poder digitar inicialmente
+
+
+
+    function verifica() {
+        achou = false;
+        for(i = 0; i < segredos.length; i++){
+            if(entrada.value == segredos[i]) {
+                alert("  Parabéns! Você ACERTOU  !!!");
+                achou = true;
+                break
+            }
+        }
+        if(achou == false) alert("  Você ERROU !!!  ");
+    
+
+        entrada.value = "";//para limpar a entrada
+        entrada.focus();//para dar um foco e poder digitar novamente
+    }
+
+    var botao = document.querySelector("button");
+    botao.onclick = verifica;//executa a função só quando o button é clicado
+
+
+
+    /*
+    function magicNumber(x){
+        return Math.round(Math.random() * x);// arredonda um número random de 1 a 10
+    }
+    
+
+    maximo = parseInt(prompt("Diga um número para ser o número máximo. . ."));
+    xNumber = magicNumber(maximo);
+
+    var i = 5;//tentativas
+    while (i != 0){
+        testNumber = parseInt(prompt("Você tem + "+ i + " tentativas. Tente adivinhar qual número. . ."));
+
+        if(testNumber == xNumber) {
+            alert("PARABÉNS, VC ACERTOU!")
+            break;
+        }
+        else if(testNumber > xNumber) alert("VC ERROU! O número é menor que "+ testNumber);
+        else alert("VC ERROU! O número é maior que " + testNumber);
+        i--;
+    }
+    
+
+    document.write("---------- GAME OVER ----------");
+    */
+</script>

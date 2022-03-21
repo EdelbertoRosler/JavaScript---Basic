@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    
+    function lineBreak() {
+        document.write("<br>");
+    }
+
+    function show(text) {
+        document.write(text); // o "document.write" serve para imprimir na tela
+        lineBreak();
+    }
+
+    function imcCalc(weight, height) {
+        return weight / (height * height);   
+    }
+
+
+    //o "prompt" abre um pop-up para receber o valor
+    var name = prompt("Imforme seu nome"); 
+    var weight = prompt(name + ", informe seu peso");
+    var height = prompt(name + ", informe sua altura");
+    var imc = imcCalc(weight, height);
+
+    show(name + ", seu imc é "+ imc);
+    lineBreak();
+    show("Conforme a ANS, seu imc está classificado como: ")
+
+    if(imc < 18.5) show("Baixo!");
+    else if(imc >= 18.5 && imc < 25 ) { show("Adequado");}
+    else if(imc >= 25 && imc < 30 ) { show("Sobrepeso");}
+    else show("Obesidade");
+    
+    
+  
+</script>

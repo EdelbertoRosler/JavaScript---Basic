@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+<script>
+    
+    function lineBreak() {
+        document.write("<br>");
+    }
+
+    function show(text) {
+        document.write(text); // o "document.write" serve para imprimir na tela
+        lineBreak();
+    }
+
+    function sum(x,y) {
+        return x + y;
+    }
+
+    var victory = parseInt(prompt("Número de vitórias:")); // o prompt recebe string, por isso usei o parseInt
+    var empates = parseInt(prompt("Número de empates:"));
+    var pontos = sum((victory * 3), empates);
+
+    show("Pontos do seu time: "+ pontos);
+</script>
