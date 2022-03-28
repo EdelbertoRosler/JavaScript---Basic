@@ -1,0 +1,40 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+    pincel.fillStyle = "gray";
+    pincel.fillRect(0, 0, 600, 400);
+
+    var cores = ['blue', 'red', 'green']
+    var indiceCorAtual = 0;
+
+    function circuloNoClick(evento){
+        x = evento.pageX - tela.offsetLeft;         // Pega o click do mouse e desconta a difernça da tela, da direita, do canvas com a tela do navegador
+        y = evento.pageY - tela.offsetTop;          // Pega o click do mouse e desconta a difernça da tela, do topo, do canvas com a tela do navegador
+
+            pincel.fillStyle = cores[indiceCorAtual];
+            pincel.beginPath();
+        if(evento.shiftKey){
+            pincel.arc(x, y, 20, 0, 2 * 3.14);          // Faz um círculo de vermelho na cordenada do click
+            pincel.fill();
+        }else{
+            pincel.arc(x, y, 10, 0, 2 * 3.14);          
+            pincel.fill();
+        }
+        console.log(x + " , " + y);
+    }
+
+    tela.onclick = circuloNoClick;
+
+    function mudaCor() {                            // dois clikes com o botão direito para mudadar a cor
+        indiceCorAtual++;
+        if(indiceCorAtual >= cores.length) {
+            indiceCorAtual = 0;                     // volta para a primeira cor, azul
+        }
+        return false;                                // para não exibir o menu padrão do canvas
+    }
+
+    tela.oncontextmenu = mudaCor;
+
+</script>
